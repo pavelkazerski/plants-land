@@ -367,7 +367,7 @@ p_smoke {
 }
 @media (max-width: 29.99875em) {
   .header__body {
-    row-gap: 2.75rem;
+    row-gap: 1.875rem;
   }
 }
 .header__top {
@@ -632,7 +632,7 @@ p_smoke {
 }
 @media (max-width: 29.99875em) {
   .menu-header__list {
-    column-gap: 1.25rem;
+    column-gap: 2.25rem;
     padding-right: 0.75rem;
     padding-left: 0.75rem;
   }
