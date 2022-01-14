@@ -35,20 +35,20 @@
             })
           ).forEach((e) => {
             let r = e.split("|"),
-              c = { root: r[0], margin: r[1], threshold: r[2] },
-              s = Array.from(t).filter(function (t) {
+              a = { root: r[0], margin: r[1], threshold: r[2] },
+              n = Array.from(t).filter(function (t) {
                 let e = t.dataset.watchRoot ? t.dataset.watchRoot : null,
                   r = t.dataset.watchMargin ? t.dataset.watchMargin : "0px",
-                  s = t.dataset.watchThreshold ? t.dataset.watchThreshold : 0;
+                  n = t.dataset.watchThreshold ? t.dataset.watchThreshold : 0;
                 if (
-                  String(e) === c.root &&
-                  String(r) === c.margin &&
-                  String(s) === c.threshold
+                  String(e) === a.root &&
+                  String(r) === a.margin &&
+                  String(n) === a.threshold
                 )
                   return t;
               }),
-              a = this.getScrollWatcherConfig(c);
-            this.scrollWatcherInit(s, a);
+              i = this.getScrollWatcherConfig(a);
+            this.scrollWatcherInit(n, i);
           });
       } else
         this.scrollWatcherLogging("Сплю, нет объектов для слежения. ZzzZZzz");
@@ -122,6 +122,9 @@
     }
   })({});
   let r = !1;
+  function a(t) {
+    this.type = t;
+  }
   setTimeout(() => {
     if (r) {
       let t = new Event("windowScroll");
@@ -129,8 +132,118 @@
         document.dispatchEvent(t);
       });
     }
-  }, 0);
-  function c() {
+  }, 0),
+    (a.prototype.init = function () {
+      const t = this;
+      (this.оbjects = []),
+        (this.daClassname = "_dynamic_adapt_"),
+        (this.nodes = document.querySelectorAll("[data-da]"));
+      for (let t = 0; t < this.nodes.length; t++) {
+        const e = this.nodes[t],
+          r = e.dataset.da.trim().split(","),
+          a = {};
+        (a.element = e),
+          (a.parent = e.parentNode),
+          (a.destination = document.querySelector(r[0].trim())),
+          (a.breakpoint = r[1] ? r[1].trim() : "767"),
+          (a.place = r[2] ? r[2].trim() : "last"),
+          (a.index = this.indexInParent(a.parent, a.element)),
+          this.оbjects.push(a);
+      }
+      this.arraySort(this.оbjects),
+        (this.mediaQueries = Array.prototype.map.call(
+          this.оbjects,
+          function (t) {
+            return (
+              "(" +
+              this.type +
+              "-width: " +
+              t.breakpoint +
+              "px)," +
+              t.breakpoint
+            );
+          },
+          this
+        )),
+        (this.mediaQueries = Array.prototype.filter.call(
+          this.mediaQueries,
+          function (t, e, r) {
+            return Array.prototype.indexOf.call(r, t) === e;
+          }
+        ));
+      for (let e = 0; e < this.mediaQueries.length; e++) {
+        const r = this.mediaQueries[e],
+          a = String.prototype.split.call(r, ","),
+          n = window.matchMedia(a[0]),
+          i = a[1],
+          s = Array.prototype.filter.call(this.оbjects, function (t) {
+            return t.breakpoint === i;
+          });
+        n.addListener(function () {
+          t.mediaHandler(n, s);
+        }),
+          this.mediaHandler(n, s);
+      }
+    }),
+    (a.prototype.mediaHandler = function (t, e) {
+      if (t.matches)
+        for (let t = 0; t < e.length; t++) {
+          const r = e[t];
+          (r.index = this.indexInParent(r.parent, r.element)),
+            this.moveTo(r.place, r.element, r.destination);
+        }
+      else
+        for (let t = e.length - 1; t >= 0; t--) {
+          const r = e[t];
+          r.element.classList.contains(this.daClassname) &&
+            this.moveBack(r.parent, r.element, r.index);
+        }
+    }),
+    (a.prototype.moveTo = function (t, e, r) {
+      e.classList.add(this.daClassname),
+        "last" === t || t >= r.children.length
+          ? r.insertAdjacentElement("beforeend", e)
+          : "first" !== t
+          ? r.children[t].insertAdjacentElement("beforebegin", e)
+          : r.insertAdjacentElement("afterbegin", e);
+    }),
+    (a.prototype.moveBack = function (t, e, r) {
+      e.classList.remove(this.daClassname),
+        void 0 !== t.children[r]
+          ? t.children[r].insertAdjacentElement("beforebegin", e)
+          : t.insertAdjacentElement("beforeend", e);
+    }),
+    (a.prototype.indexInParent = function (t, e) {
+      const r = Array.prototype.slice.call(t.children);
+      return Array.prototype.indexOf.call(r, e);
+    }),
+    (a.prototype.arraySort = function (t) {
+      "min" === this.type
+        ? Array.prototype.sort.call(t, function (t, e) {
+            return t.breakpoint === e.breakpoint
+              ? t.place === e.place
+                ? 0
+                : "first" === t.place || "last" === e.place
+                ? -1
+                : "last" === t.place || "first" === e.place
+                ? 1
+                : t.place - e.place
+              : t.breakpoint - e.breakpoint;
+          })
+        : Array.prototype.sort.call(t, function (t, e) {
+            return t.breakpoint === e.breakpoint
+              ? t.place === e.place
+                ? 0
+                : "first" === t.place || "last" === e.place
+                ? 1
+                : "last" === t.place || "first" === e.place
+                ? -1
+                : e.place - t.place
+              : e.breakpoint - t.breakpoint;
+          });
+    });
+  new a("max").init();
+  function n() {
     document.querySelectorAll(".menu-header__link").forEach((t) => {
       event.target == t
         ? t.classList.contains("menu-header__link_active") ||
@@ -142,11 +255,11 @@
   document
     .querySelector(".menu-header__list")
     .addEventListener("click", function (t) {
-      t.target.closest(".menu-header__link") && c();
+      t.target.closest(".menu-header__link") && n();
     });
-  const s = document.querySelector(".header__mobile-search");
-  s &&
-    s.addEventListener("click", function () {
+  const i = document.querySelector(".header__mobile-search");
+  i &&
+    i.addEventListener("click", function () {
       document
         .querySelector(".search-header")
         .classList.toggle("search-header_active");
