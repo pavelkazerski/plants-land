@@ -667,7 +667,7 @@
       "Object" === Object.prototype.toString.call(e).slice(8, -1)
     );
   }
-  function T(...e) {
+  function S(...e) {
     const t = Object(e[0]),
       s = ["__proto__", "constructor", "prototype"];
     for (let n = 1; n < e.length; n += 1) {
@@ -688,9 +688,9 @@
             (b(t[i]) && b(r[i])
               ? r[i].__swiper__
                 ? (t[i] = r[i])
-                : T(t[i], r[i])
+                : S(t[i], r[i])
               : !b(t[i]) && b(r[i])
-              ? ((t[i] = {}), r[i].__swiper__ ? (t[i] = r[i]) : T(t[i], r[i]))
+              ? ((t[i] = {}), r[i].__swiper__ ? (t[i] = r[i]) : S(t[i], r[i]))
               : (t[i] = r[i]));
         }
       }
@@ -698,7 +698,7 @@
     var i;
     return t;
   }
-  function S(e, t, s) {
+  function T(e, t, s) {
     e.style.setProperty(t, s);
   }
   function C({ swiper: e, targetPosition: t, side: s }) {
@@ -971,7 +971,7 @@
       const v = e.snapGrid.length,
         w = e.slidesGrid.length;
       let b = i.spaceBetween,
-        T = -m,
+        S = -m,
         C = 0,
         E = 0;
       if (void 0 === r) return;
@@ -984,8 +984,8 @@
           : c.css({ marginRight: "", marginBottom: "", marginTop: "" }),
         i.centeredSlides &&
           i.cssMode &&
-          (S(e.wrapperEl, "--swiper-centered-offset-before", ""),
-          S(e.wrapperEl, "--swiper-centered-offset-after", ""));
+          (T(e.wrapperEl, "--swiper-centered-offset-before", ""),
+          T(e.wrapperEl, "--swiper-centered-offset-after", ""));
       const y = i.grid && i.grid.rows > 1 && e.grid;
       let x;
       y && e.grid.initSlides(p);
@@ -1035,19 +1035,19 @@
           c[n] && (c[n].swiperSlideSize = x),
             f.push(x),
             i.centeredSlides
-              ? ((T = T + x / 2 + C / 2 + b),
-                0 === C && 0 !== n && (T = T - r / 2 - b),
-                0 === n && (T = T - r / 2 - b),
-                Math.abs(T) < 0.001 && (T = 0),
-                i.roundLengths && (T = Math.floor(T)),
-                E % i.slidesPerGroup == 0 && u.push(T),
-                h.push(T))
-              : (i.roundLengths && (T = Math.floor(T)),
+              ? ((S = S + x / 2 + C / 2 + b),
+                0 === C && 0 !== n && (S = S - r / 2 - b),
+                0 === n && (S = S - r / 2 - b),
+                Math.abs(S) < 0.001 && (S = 0),
+                i.roundLengths && (S = Math.floor(S)),
+                E % i.slidesPerGroup == 0 && u.push(S),
+                h.push(S))
+              : (i.roundLengths && (S = Math.floor(S)),
                 (E - Math.min(e.params.slidesPerGroupSkip, E)) %
                   e.params.slidesPerGroup ==
-                  0 && u.push(T),
-                h.push(T),
-                (T = T + x + b)),
+                  0 && u.push(S),
+                h.push(S),
+                (S = S + x + b)),
             (e.virtualSize += x + b),
             (C = x),
             (E += 1);
@@ -1116,8 +1116,8 @@
         }),
         i.centeredSlides && i.cssMode && !i.centeredSlidesBounds)
       ) {
-        S(e.wrapperEl, "--swiper-centered-offset-before", -u[0] + "px"),
-          S(
+        T(e.wrapperEl, "--swiper-centered-offset-before", -u[0] + "px"),
+          T(
             e.wrapperEl,
             "--swiper-centered-offset-after",
             e.size / 2 - f[f.length - 1] / 2 + "px"
@@ -2204,7 +2204,7 @@
       (e.allowSlideNext = i),
       e.params.watchOverflow && r !== e.snapGrid && e.checkOverflow();
   }
-  function W(e) {
+  function B(e) {
     const t = this;
     t.enabled &&
       (t.allowClick ||
@@ -2213,7 +2213,7 @@
           t.animating &&
           (e.stopPropagation(), e.stopImmediatePropagation())));
   }
-  function B() {
+  function W() {
     const e = this,
       { wrapperEl: t, rtlTranslate: s, enabled: i } = e;
     if (!i) return;
@@ -2231,8 +2231,8 @@
       e.emit("setTranslate", e.translate, !1);
   }
   let j = !1;
-  function H() {}
-  const V = (e, t) => {
+  function V() {}
+  const H = (e, t) => {
     const s = r(),
       {
         params: i,
@@ -2284,13 +2284,13 @@
         (e.onTouchStart = z.bind(e)),
           (e.onTouchMove = D.bind(e)),
           (e.onTouchEnd = G.bind(e)),
-          s.cssMode && (e.onScroll = B.bind(e)),
-          (e.onClick = W.bind(e)),
-          i.touch && !j && (t.addEventListener("touchstart", H), (j = !0)),
-          V(e, "on");
+          s.cssMode && (e.onScroll = W.bind(e)),
+          (e.onClick = B.bind(e)),
+          i.touch && !j && (t.addEventListener("touchstart", V), (j = !0)),
+          H(e, "on");
       },
       detachEvents: function () {
-        V(this, "off");
+        H(this, "off");
       },
     },
     R = (e, t) => e.grid && t.grid && t.grid.rows > 1;
@@ -2326,7 +2326,7 @@
           e.emitContainerClasses());
       const u = l.direction && l.direction !== n.direction,
         h = n.loop && (l.slidesPerView !== n.slidesPerView || u);
-      u && s && e.changeDirection(), T(e.params, l);
+      u && s && e.changeDirection(), S(e.params, l);
       const f = e.params.enabled;
       Object.assign(e, {
         allowTouchMove: e.params.allowTouchMove,
@@ -2514,9 +2514,9 @@
                 "enabled" in e[i] ||
                 (e[i].enabled = !0),
               e[i] || (e[i] = { enabled: !1 }),
-              T(t, s))
-            : T(t, s))
-        : T(t, s);
+              S(t, s))
+            : S(t, s))
+        : S(t, s);
     };
   }
   const Q = {
@@ -2648,14 +2648,14 @@
           ? (s = e[0])
           : ([t, s] = e),
         s || (s = {}),
-        (s = T({}, s)),
+        (s = S({}, s)),
         t && !s.el && (s.el = t),
         s.el && m(s.el).length > 1)
       ) {
         const e = [];
         return (
           m(s.el).each((t) => {
-            const i = T({}, s, { el: t });
+            const i = S({}, s, { el: t });
             e.push(new Z(i));
           }),
           e
@@ -2681,11 +2681,11 @@
           emit: i.emit.bind(i),
         });
       });
-      const r = T({}, Y, n);
+      const r = S({}, Y, n);
       return (
-        (i.params = T({}, r, K, s)),
-        (i.originalParams = T({}, i.params)),
-        (i.passedParams = T({}, s)),
+        (i.params = S({}, r, K, s)),
+        (i.originalParams = S({}, i.params)),
+        (i.passedParams = S({}, s)),
         i.params &&
           i.params.on &&
           Object.keys(i.params.on).forEach((e) => {
@@ -3018,7 +3018,7 @@
       );
     }
     static extendDefaults(e) {
-      T(K, e);
+      S(K, e);
     }
     static get extendedDefaults() {
       return K;
@@ -3299,6 +3299,13 @@
               ".slider-catalog__moveto.slider-catalog__moveto_next._icon-arrow",
             prevEl:
               ".slider-catalog__moveto.slider-catalog__moveto_prev._icon-arrow",
+          },
+          breakpoints: {
+            319: { slidesPerView: 1, spaceBetween: 0, centeredSlides: !1 },
+            480: { slidesPerView: 2, spaceBetween: 12, centeredSlides: !1 },
+            641: { slidesPerView: 3, spaceBetween: 6, centeredSlides: !0 },
+            768: { slidesPerView: 3, spaceBetween: 17 },
+            992: { slidesPerView: 3, spaceBetween: 17 },
           },
           on: {},
         });
