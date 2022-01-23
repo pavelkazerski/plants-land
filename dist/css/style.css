@@ -3807,6 +3807,242 @@ p_smoke {
     font-size: 0.875rem;
   }
 }
+
+.course__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+@media (min-width: 66.875em) {
+  .course__container {
+    padding-top: 6.3125rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 66.875em) {
+  .course__container {
+    padding-top: clamp( 1.9375rem , 0.0708333333rem  +  9.3333333333vw , 6.3125rem );
+  }
+}
+@media (max-width: 20em) {
+  .course__container {
+    padding-top: 1.9375rem;
+  }
+}
+@media (min-width: 66.875em) {
+  .course__container {
+    padding-bottom: 6.3125rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 66.875em) {
+  .course__container {
+    padding-bottom: clamp( 1.9375rem , 0.0708333333rem  +  9.3333333333vw , 6.3125rem );
+  }
+}
+@media (max-width: 20em) {
+  .course__container {
+    padding-bottom: 1.9375rem;
+  }
+}
+@media (max-width: 29.99875em) {
+  .course__container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+.course__title {
+  font-family: Ovo, san-serif;
+  line-height: 1.1111111111;
+}
+@media (min-width: 66.875em) {
+  .course__title {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 66.875em) {
+  .course__title {
+    font-size: clamp( 1.25rem , 0.8233333333rem  +  2.1333333333vw , 2.25rem );
+  }
+}
+@media (max-width: 20em) {
+  .course__title {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 66.875em) {
+  .course__title {
+    max-width: 45rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 66.875em) {
+  .course__title {
+    max-width: clamp( 18.75rem , 7.55rem  +  56vw , 45rem );
+  }
+}
+@media (max-width: 20em) {
+  .course__title {
+    max-width: 18.75rem;
+  }
+}
+@media (min-width: 66.875em) {
+  .course__title {
+    padding-bottom: 1.5rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 66.875em) {
+  .course__title {
+    padding-bottom: clamp( 0.75rem , 0.43rem  +  1.6vw , 1.5rem );
+  }
+}
+@media (max-width: 20em) {
+  .course__title {
+    padding-bottom: 0.75rem;
+  }
+}
+.course__title span {
+  color: #F24841;
+}
+@media (min-width: 66.875em) {
+  .course__form {
+    padding-top: 1.4375rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 66.875em) {
+  .course__form {
+    padding-top: clamp( 0.6875rem , 0.3675rem  +  1.6vw , 1.4375rem );
+  }
+}
+@media (max-width: 20em) {
+  .course__form {
+    padding-top: 0.6875rem;
+  }
+}
+
+.form-course {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.form-course__line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  width: 30rem;
+}
+@media (min-width: 66.875em) {
+  .form-course__line {
+    width: 30rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 66.875em) {
+  .form-course__line {
+    width: clamp( 18.75rem , 13.95rem  +  24vw , 30rem );
+  }
+}
+@media (max-width: 20em) {
+  .form-course__line {
+    width: 18.75rem;
+  }
+}
+.form-course__free-places {
+  color: #595758;
+}
+@media (min-width: 66.875em) {
+  .form-course__free-places {
+    padding-top: 1.4375rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 66.875em) {
+  .form-course__free-places {
+    padding-top: clamp( 0.75rem , 0.4566666667rem  +  1.4666666667vw , 1.4375rem );
+  }
+}
+@media (max-width: 20em) {
+  .form-course__free-places {
+    padding-top: 0.75rem;
+  }
+}
+.form-course__free-places span {
+  color: #F24841;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.input {
+  border-radius: 0 !important;
+  width: 100%;
+  display: block;
+  padding: 1rem 20px 1rem 1rem;
+  border: 1px solid #BCBEC0;
+  width: 100%;
+}
+@media (min-width: 66.875em) {
+  .input {
+    min-height: 3.5rem;
+  }
+}
+@media (min-width: 20em) and (max-width: 66.875em) {
+  .input {
+    min-height: clamp( 2.625rem , 2.2516666667rem  +  1.8666666667vw , 3.5rem );
+  }
+}
+@media (max-width: 20em) {
+  .input {
+    min-height: 2.625rem;
+  }
+}
+.input::placeholder {
+  color: #595758;
+}
+@media (max-width: 29.99875em) {
+  .input {
+    font-size: 0.875rem;
+  }
+}
+
+textarea.input {
+  resize: none;
+  padding: 0px 0px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  width: 100%;
+  min-height: 3.5rem;
+  background-color: #00BF86;
+  transition: all 0.3s ease 0s;
+  font-weight: 700;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: white;
+}
+@media (any-hover: hover) {
+  .button:hover {
+    background-color: #231F20;
+  }
+}
+.button._fw {
+  width: 100%;
+}
+@media (max-width: 29.99875em) {
+  .button {
+    font-size: 0.875rem;
+  }
+}
 .swiper {
   overflow: hidden;
 }
