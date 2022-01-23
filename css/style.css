@@ -2622,7 +2622,7 @@ p_smoke {
 }
 @media (max-width: 47.99875em) {
   .slider-catalog::before, .slider-catalog::after {
-    width: 7%;
+    width: 10%;
   }
 }
 .slider-catalog::before {
@@ -3615,7 +3615,12 @@ p_smoke {
 .body-blog__link {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
-  align-self: center;
+  align-self: flex-start;
+}
+@media (max-width: 47.99875em) {
+  .body-blog__link {
+    align-self: center;
+  }
 }
 
 .reviews__container {
