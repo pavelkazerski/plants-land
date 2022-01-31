@@ -580,6 +580,11 @@ p_smoke {
     column-gap: 0.75rem;
   }
 }
+@media (any-hover: hover) {
+  .social .social__link:hover {
+    background-color: #231F20;
+  }
+}
 .social__item {
   padding: 0.25rem 0px;
 }
@@ -592,6 +597,7 @@ p_smoke {
   color: white;
   background-color: #00BF86;
   border-radius: 50%;
+  transition: background-color 0.3s ease 0s;
 }
 @media (max-width: 47.99875em) {
   .social__link {
@@ -630,12 +636,19 @@ p_smoke {
 .contacts__phone, .contacts__mail {
   font-weight: 500;
   line-height: 1.5;
+  transition: color 0.3s ease 0s;
 }
 .contacts__phone {
   padding: 0.25rem 0px;
 }
 .contacts__mail {
   padding: 0.25rem 0px;
+}
+@media (any-hover: hover) {
+  .contacts .contacts__phone:hover,
+.contacts .contacts__mail:hover {
+    color: #00BF86;
+  }
 }
 
 .review {
@@ -945,6 +958,14 @@ p_smoke {
     color: #595758;
     font-size: 0.875rem;
     line-height: 1.2857142857;
+  }
+}
+@media (any-hover: hover) {
+  .search-header .search-header__btn::before {
+    transition: color 0.3s ease 0s;
+  }
+  .search-header .search-header__btn:hover::before {
+    color: #595758;
   }
 }
 
