@@ -557,6 +557,12 @@ p_smoke {
   font-weight: 300;
   font-size: 0.875rem;
   line-height: 1.7142857143;
+  transition: color 0.3s ease 0s;
+}
+@media (any-hover: hover) {
+  .technical .technical__link:hover {
+    color: #00BF86;
+  }
 }
 
 .social {
